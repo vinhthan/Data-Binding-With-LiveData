@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //lang nghe LiveData
+        //Hàm lắng nghe LiveData nên được viết ở UI Thread vì chỉ
+        // UI thread mới có thể update giao diện thôi các bạn nhé
+
         val mainViewModel = ViewModelProviders.of(this)
             .get(MainViewModel::class.java)
 
@@ -28,6 +32,10 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.editTextContent.observe(this, Observer {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             txvChangeValueEdt.text = editText.text.toString()
+
+            btnDisplayEdtContent.setOnClickListener {
+                txvShowEdt.text = editText.text.toString()
+            }
         })
 
 

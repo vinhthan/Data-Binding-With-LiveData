@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
+
     val currentRandomFruitName: LiveData<String>
         get() = FakeRepository.currentRandomFruitName
 
@@ -14,6 +15,7 @@ class MainViewModel : ViewModel() {
     @Bindable
     val editTextContent = MutableLiveData<String>()
 
+    //Update LiveData
 
     //sau khi bam btn thi hien thi gtri cua edt
     private val _displayedEditTextContent = MutableLiveData<String>()
@@ -28,10 +30,15 @@ class MainViewModel : ViewModel() {
         editTextContent.value = FakeRepository.getRandomFruitName()
     }
 
-    //thay doi trang thai gtri cua TextView
+    //thay doi tung gtri cua TextView
     //hien thi ngay lap tuc tung gtri cua edt vao txv khi dc go tu ban phim
     private val _changeEdittext = MutableLiveData<String>()
     val changeEditText: LiveData<String>
         get() = _changeEdittext
 
 }
+
+//LiveData con co them:
+//Transformations.map()
+//Transformations.switchMap()
+
