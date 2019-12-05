@@ -28,7 +28,8 @@ class MainViewModel : ViewModel() {
         editTextContent.value = FakeRepository.getRandomFruitName()
     }
 
-    //hien thi ngay lap tuc tung gtri cua edt khi dc go tu ban phim
+    //thay doi trang thai gtri cua TextView
+    //hien thi ngay lap tuc tung gtri cua edt vao txv khi dc go tu ban phim
     private val _changeEdittext = MutableLiveData<String>()
     val changeEditText: LiveData<String>
         get() = _changeEdittext
